@@ -10,10 +10,9 @@ class userclass:
         sql = "select * from user_table"
         curs.execute(sql)
         input_data = curs.fetchall()
-
+        
         self.Userdf = pd.DataFrame(input_data) # sql 데이터로 데이터 프레임 생성
-        print(self.Userdf)
-        self.Userdf.to_csv('user_list.csv', encoding='utf-8-sig', index = False)
+        
     def user_searh(self):
         # 회원 검색
         u_name = "김길동"
