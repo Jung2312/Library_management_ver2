@@ -13,7 +13,7 @@ main.configure(bg='white')
 frame = tk.Frame(main)
 frame.pack()
 
-Lib_image = PhotoImage(file ='C:\\Users\\alswj\\OneDrive\\문서\\Library_management_ver2\\GUI\\program_image\\라이브러리로고.png')
+Lib_image = PhotoImage(file ='../GUI/program_image/라이브러리로고.png')
 Lib_label = tk.Label(frame,image=Lib_image, bg='white')
 Lib_label.pack(anchor=NW, padx=20)
 

@@ -54,7 +54,7 @@ Rmenubtn["menu"] = rentmenu
 
 rentmenu.add_command(label="도서대여",font=fontExample2)
 rentmenu.add_command(label="도서반납",font=fontExample2)
-Lib_image = PhotoImage(file ='C:\\Users\\alswj\\OneDrive\\문서\\Library_management_ver2\\GUI\\program_image\\라이브러리로고.png')
+Lib_image = PhotoImage(file ='../GUI/program_image/라이브러리로고.png')
 Lib_label = tk.Label(main,image=Lib_image, bg='white')
 Lib_label.pack(anchor=NW, padx=20)
 
