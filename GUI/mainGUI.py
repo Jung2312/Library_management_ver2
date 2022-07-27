@@ -1,12 +1,7 @@
 from tkinter import *
 import tkinter.font as tkFont
 import tkinter as tk
-
-class bookGUI:
-    def home(main):
-        Lib_lmage = tk.Label(main, image=PhotoImage(file = "라이브러리로고.png"))
-        Lib_lmage.pack()
-        
+    
 
 # 메인 화면
 
@@ -59,7 +54,10 @@ Rmenubtn["menu"] = rentmenu
 
 rentmenu.add_command(label="도서대여",font=fontExample2)
 rentmenu.add_command(label="도서반납",font=fontExample2)
-bookGUI.home(main) # 이미지 추가 필요
+Lib_image = PhotoImage(file ='C:\\Users\\alswj\\OneDrive\\문서\\Library_management_ver2\\GUI\\program_image\\라이브러리로고.png')
+Lib_label = tk.Label(main,image=Lib_image, bg='white')
+Lib_label.pack(anchor=NW, padx=20)
+
 main.mainloop()
 
     
