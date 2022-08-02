@@ -22,7 +22,7 @@ class bookGUI:
         bar_label = Label(search_frame, image=s_bar)  # 검색 바 사진
         bar_label.pack(side='left', padx=10, pady=8)
 
-        search_entry = Entry(self.frame, width=37, bd=0)  # 검색 엔트리
+        search_entry = Entry(self.frame, width=34, bd=0)  # 검색 엔트리
         search_entry.place(x=120, y=88)
 
         search_button = Button(search_frame, image=s_button, width=45, height=45, bg='white', bd=0)  # 검색 버튼
