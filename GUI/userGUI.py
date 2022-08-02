@@ -57,8 +57,12 @@ class userGUI:
         # 도서 하단 블랙 바
         under_bg = Label(self.frame,image=image4, bg="white")
         under_bg.pack(side=BOTTOM)
-
-    def user_append(self,image5, image6, image7, image8):
+    
+    def info_insert(info_entry, phone_num):
+        info_entry.insert(phone_num)
+        info_entry.config(state='disabled',disabledbackground="white")    
+        
+    def user_info(self, image5, image6, image7, image8):
         name_label = Label(self.frame, text="이름", bg="white", font=self.hanna14font)
         name_label.place(x=60, y=20)
         name_entry=Entry(self.frame, font=self.hanna18font, width=10)
@@ -71,7 +75,7 @@ class userGUI:
         
         company_label = Label(self.frame, text="출판사", bg="white", font=self.hanna14font)
         company_label.place(x=240, y=80)
-        company_entry=Entry(self.frame, font=self.font14, width=10)
+        company_entry=Entry(self.frame, font=self.font14, width=10)  
         company_entry.place(x=300, y=80)
         
         line = Label(self.frame, image=image5, bg="white")
@@ -80,28 +84,33 @@ class userGUI:
         image_entry = Label(self.frame, width=15, height=9)
         image_entry.pack(anchor=NW, padx=60, pady=20)
         
+        sex_label = Label(self.frame, text="성별", bg="white", font=self.hanna14font)
+        sex_label.place(x=220, y=170)
+        sex_var = IntVar()
+        sex_button1 = Radiobutton(self.frame, text="여", value=1, variable=sex_var, bg="white", font=self.font14)
+        sex_button2 = Radiobutton(self.frame, text="남", value=2, variable=sex_var, bg="white", font=self.font14)
+        sex_button1.place(x=290, y=160)
+        sex_button2.place(x=350, y=160)
+        
         phone_label = Label(self.frame, text="전화번호", bg="white", font=self.hanna14font)
-        phone_label.place(x=220, y=210)
+        phone_label.place(x=220, y=225)
         phone_entry=Entry(self.frame, font=self.font14, width=10)
-        phone_entry.place(x=300, y=210)
+        phone_entry.place(x=300, y=225)
         
         birth_label = Label(self.frame, text="생년월일", bg="white", font=self.hanna14font)
-        birth_label.place(x=220, y=270)
+        birth_label.place(x=220, y=285)
         birth_entry=Entry(self.frame, font=self.font14, width=10)
-        birth_entry.place(x=300, y=270)
+        birth_entry.place(x=300, y=285)
         
         email_label = Label(self.frame, text="이메일", bg="white", font=self.hanna14font)
-        email_label.place(x=220, y=330)
+        email_label.place(x=220, y=350)
         email_entry=Entry(self.frame, font=self.font14, width=10)
-        email_entry.place(x=300, y=330)
+        email_entry.place(x=300, y=350)
         
         line2 = Label(self.frame, image=image5, bg="white")
         line2.pack(anchor=NW, padx=60, pady=20)
- 
-
-       # 트리뷰 생성
-        '''
-        회원 검색 시 클릭하면 나오는 상세 정보
+        
+        # 트리뷰 생성, 회원 검색 시 클릭하면 나오는 상세 정보
         rent_label = Label(self.frame, text="대여도서", bg="white", font=self.hanna14font)
         rent_label.pack(anchor=NW, padx=60, pady=20)
         
@@ -121,7 +130,7 @@ class userGUI:
         Urent_tree.heading("return_Day", text="반납예정일", anchor="center")
         
         # 회원 수정 버튼
-        mod_button = Button(self.frame,image=image6, bg="white", bd=0)
+        mod_button = Button(self.frame,image=image6, bg="white", bd=0, command=userGUI().user_modifiy)
         mod_button.pack(anchor=NW, padx=120, pady=20)
         
         # 회원 삭제 버튼
@@ -131,11 +140,131 @@ class userGUI:
         # 회원 대여 버튼
         rent_button = Button(self.frame,image=image8, bg="white", bd=0)
         rent_button.place(x=300, y=640)
-        '''
         
+        
+    # 회원 등록
+    def user_append(self,image9, image10):
+        name_label = Label(self.frame, text="이름", bg="white", font=self.hanna14font)
+        name_label.place(x=60, y=20)
+        name_entry=Entry(self.frame, font=self.hanna18font, width=10)
+        name_entry.pack(anchor=NW, padx=110, pady=20)
+        
+        writer_label = Label(self.frame, text="저자", bg="white", font=self.hanna14font)
+        writer_label.place(x=60, y=80)
+        writer_entry=Entry(self.frame, font=self.font14, width=10)
+        writer_entry.pack(anchor=NW, padx=110, pady=10)
+        
+        company_label = Label(self.frame, text="출판사", bg="white", font=self.hanna14font)
+        company_label.place(x=240, y=80)
+        company_entry=Entry(self.frame, font=self.font14, width=10)
+        company_entry.place(x=300, y=80)
+        
+        line = Label(self.frame, image=image9, bg="white")
+        line.pack(anchor=NW, padx=60, pady=20)
+        
+        image_entry = Label(self.frame, width=15, height=9)
+        image_entry.pack(anchor=NW, padx=60, pady=20)
+        
+        sex_label = Label(self.frame, text="성별", bg="white", font=self.hanna14font)
+        sex_label.place(x=220, y=170)
+        sex_var = IntVar()
+        sex_button1 = Radiobutton(self.frame, text="여", value=1, variable=sex_var, bg="white", font=self.font14)
+        sex_button2 = Radiobutton(self.frame, text="남", value=2, variable=sex_var, bg="white", font=self.font14)
+        sex_button1.place(x=290, y=160)
+        sex_button2.place(x=350, y=160)
+        
+        phone_label = Label(self.frame, text="전화번호", bg="white", font=self.hanna14font)
+        phone_label.place(x=220, y=225)
+        phone_entry=Entry(self.frame, font=self.font14, width=10)
+        phone_entry.place(x=300, y=225)
+        
+        birth_label = Label(self.frame, text="생년월일", bg="white", font=self.hanna14font)
+        birth_label.place(x=220, y=285)
+        birth_entry=Entry(self.frame, font=self.font14, width=10)
+        birth_entry.place(x=300, y=285)
+        
+        email_label = Label(self.frame, text="이메일", bg="white", font=self.hanna14font)
+        email_label.place(x=220, y=350)
+        email_entry=Entry(self.frame, font=self.font14, width=10)
+        email_entry.place(x=300, y=350)
+        
+        line2 = Label(self.frame, image=image9, bg="white")
+        line2.pack(anchor=NW, padx=60, pady=20)
+        
+        # 회원 등록 버튼
+        append_button = Button(self.frame,image=image10, bg="white", bd=0)
+        append_button.pack(anchor=CENTER, pady=40)
+    
+    
+    # 회원 수정 함수
+    def mod_insert(mod_entry, phone_num):
+        mod_entry.insert(phone_num)
+        mod_entry.config(state='normal')   
+    
+    
+    # 회원 수정
     def user_modifiy(self):
-        pass
+        top = Toplevel()
+        top.title("Library")
+        top.geometry("472x700+0+0")
+        top.resizable(False,False)
+        top.configure(bg='white')
         
+        line_image = PhotoImage(file ="../GUI/program_image/상세정보라인.png")
+        modButton_image = PhotoImage(file ="../GUI/program_image/도서상세수정버튼.png")
+        
+        name_label = Label(top, text="이름", bg="white", font=self.hanna14font)
+        name_label.place(x=60, y=20)
+        name_entry=Entry(top, font=self.hanna18font, width=10)
+        name_entry.pack(anchor=NW, padx=110, pady=20)
+        
+        writer_label = Label(top, text="저자", bg="white", font=self.hanna14font)
+        writer_label.place(x=60, y=80)
+        writer_entry=Entry(top, font=self.font14, width=10)
+        writer_entry.pack(anchor=NW, padx=110, pady=10)
+        
+        company_label = Label(top, text="출판사", bg="white", font=self.hanna14font)
+        company_label.place(x=240, y=80)
+        company_entry=Entry(top, font=self.font14, width=10)
+        company_entry.place(x=300, y=80)
+        
+        line = Label(top, image=line_image, bg="white")
+        line.pack(anchor=NW, padx=60, pady=20)
+        
+        image_entry = Label(top, width=15, height=9)
+        image_entry.pack(anchor=NW, padx=60, pady=20)
+        
+        sex_label = Label(top, text="성별", bg="white", font=self.hanna14font)
+        sex_label.place(x=220, y=170)
+        sex_var = IntVar()
+        sex_button1 = Radiobutton(top, text="여", value=1, variable=sex_var, bg="white", font=self.font14)
+        sex_button2 = Radiobutton(top, text="남", value=2, variable=sex_var, bg="white", font=self.font14)
+        sex_button1.place(x=290, y=160)
+        sex_button2.place(x=350, y=160)
+        
+        phone_label = Label(top, text="전화번호", bg="white", font=self.hanna14font)
+        phone_label.place(x=220, y=225)
+        phone_entry=Entry(top, font=self.font14, width=10)
+        phone_entry.place(x=300, y=225)
+        
+        birth_label = Label(top, text="생년월일", bg="white", font=self.hanna14font)
+        birth_label.place(x=220, y=285)
+        birth_entry=Entry(top, font=self.font14, width=10)
+        birth_entry.place(x=300, y=285)
+        
+        email_label = Label(top, text="이메일", bg="white", font=self.hanna14font)
+        email_label.place(x=220, y=350)
+        email_entry=Entry(top, font=self.font14, width=10)
+        email_entry.place(x=300, y=350)
+        
+        line2 = Label(top, image=line_image, bg="white")
+        line2.pack(anchor=NW, padx=60, pady=20)
+        
+        # 회원 수정 버튼
+        append_button = Button(top,image=modButton_image, bg="white", bd=0)
+        append_button.pack(anchor=CENTER, pady=40)
+
+        top.mainloop()
         
         
         
@@ -153,11 +282,13 @@ line_image = PhotoImage(file ="../GUI/program_image/상세정보라인.png")
 modButton_image = PhotoImage(file ="../GUI/program_image/도서상세수정버튼.png")
 delButton_image = PhotoImage(file ="../GUI/program_image/도서상세삭제버튼.png")
 rentButton_image = PhotoImage(file ="../GUI/program_image/도서상세대여버튼.png")
+appendButton_image = PhotoImage(file ="../GUI/program_image/도서회원등록검정버튼.png")
 
 user_class = userGUI()
 
-user_class.user_search(Lib_image,U_shr_image,Shr_button_image,under_image)
-#user_class.user_append(line_image, modButton_image, delButton_image, rentButton_image)
-#user_class.user_modifiy(line_image, modButton_image, delButton_image, rentButton_image)
+#user_class.user_search(Lib_image,U_shr_image,Shr_button_image,under_image)
+user_class.user_info(line_image, modButton_image, delButton_image, rentButton_image)
+#user_class.user_append(line_image, appendButton_image)
+#user_class.user_modifiy(line_image, modButton_image)
 
 main.mainloop() 
