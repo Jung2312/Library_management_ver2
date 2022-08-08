@@ -1,10 +1,70 @@
 from tkinter import *
 import tkinter.font as tkFont
 import tkinter as tk
-    
+
+
+class main_home():
+    def __init__(self):
+        self.Lib_image = PhotoImage(file ='../GUI/program_image/라이브러리로고.png')
+        self.B_shr_image = PhotoImage(file ="../GUI/program_image/도서검색바.png")
+        self.Shr_button_image = PhotoImage(file ="../GUI/program_image/도서검색버튼.png")
+        
+        self.book_rent_ima = PhotoImage(file ='../GUI/program_image/도서 대여버튼.png')
+        self.book_app_ima = PhotoImage(file ='../GUI/program_image/도서등록버튼.png')
+        
+        self.book_re_ima = PhotoImage(file ='../GUI/program_image/도서반납버튼.png')
+        self.user_app_ima = PhotoImage(file ='../GUI/program_image/회원등록버튼.png')
+        
+        self.Lib_txt_image = PhotoImage(file ='../GUI/program_image/도서관리메인로고.png')
+        self.under_bar = PhotoImage(file ='../GUI/program_image/도서하단바.png')
+        
+        self.frame = Frame(main, bg="white", width=472, height=700)
+        self.frame.pack(side="left",fill="both",expand=True)
+        
+    def home(self):
+        Lib_label = tk.Label(self.frame, image=self.Lib_image, bg='white')
+        Lib_label.pack(anchor=NW, padx=20)
+        
+        # 도서 검색 바
+        B_shr_bar = Label(self.frame,image=self.B_shr_image)
+        B_shr_bar.pack(anchor=NW, padx=20, pady=8)
+
+        # 도서 검색 엔트리
+        book_shr_Entry = Entry(self.frame, width=34, bd=0)
+        book_shr_Entry.place(x=110, y=70)
+
+        # 도서 검색 버튼
+        Shr_button = Button(self.frame,image=self.Shr_button_image, bg="white", bd=0)
+        Shr_button.place(x=420, y=70)
+        
+        # 도서 대여 메뉴로 가는 버튼
+        book_rent_butt = Button(self.frame, image=self.book_rent_ima, bg="white", bd=0)
+        book_rent_butt.place(x=20, y=140)
+        
+        # 도서 등록 메뉴로 가는 버튼
+        book_app_butt = Button(self.frame, image=self.book_app_ima, bg="white", bd=0)
+        book_app_butt.place(x=20, y=324)
+        
+        # 도서 반납 메뉴로 가는 버튼
+        book_re_butt = Button(self.frame, image=self.book_re_ima, bg="white", bd=0)
+        book_re_butt.place(x=236, y=190)
+        
+        # 회원 등록 메뉴로 가는 버튼
+        user_app_butt = Button(self.frame, image=self.user_app_ima, bg="white", bd=0)
+        user_app_butt.place(x=236, y=374)
+        
+        Lib_txt = Label(image=self.Lib_txt_image , bg="white")
+        Lib_txt.place(x=140, y=580)
+        
+        under_image = Label(image=self.under_bar, bg="black")
+        under_image.place(y=720)
+        
+        
+        
+        
 
 # 메인 화면
-
+# 카테고리는 메인에, 나머지 버튼은 프레임에
 main = Tk()
 main.title("Library")
 main.geometry("472x766+0+0")
@@ -54,9 +114,9 @@ Rmenubtn["menu"] = rentmenu
 
 rentmenu.add_command(label="도서대여",font=fontExample2)
 rentmenu.add_command(label="도서반납",font=fontExample2)
-Lib_image = PhotoImage(file ='../GUI/program_image/라이브러리로고.png')
-Lib_label = tk.Label(main,image=Lib_image, bg='white')
-Lib_label.pack(anchor=NW, padx=20)
+
+main_class = main_home()
+main_class.home()
 
 main.mainloop()
 
