@@ -27,7 +27,7 @@ class userGUI:
     def user_search(self, image1,image2,image3,image4):
         
         # 라이브러리 로고
-        Lib_label = Label(self.frame,image=image1, bg='white')
+        Lib_label = Label(self.frame,image=self.Lib_image, bg='white')
         Lib_label.pack(anchor=NW, padx=20)
 
         # 회원 검색 바
@@ -73,27 +73,33 @@ class userGUI:
         info_entry.config(state='disabled',disabledbackground="white")    
         
     def user_info(self):
+        # 이름 출력
         name_label = Label(self.frame, text="이름", bg="white", font=self.hanna14font)
         name_label.place(x=60, y=20)
         name_entry=Entry(self.frame, font=self.hanna18font, width=10)
         name_entry.pack(anchor=NW, padx=110, pady=20)
         
+        # 저자 출력
         writer_label = Label(self.frame, text="저자", bg="white", font=self.hanna14font)
         writer_label.place(x=60, y=80)
         writer_entry=Entry(self.frame, font=self.font14, width=10)
         writer_entry.pack(anchor=NW, padx=110, pady=10)
         
+        # 출판사 출력
         company_label = Label(self.frame, text="출판사", bg="white", font=self.hanna14font)
         company_label.place(x=240, y=80)
         company_entry=Entry(self.frame, font=self.font14, width=10)  
         company_entry.place(x=300, y=80)
         
+        # 선 출력
         line = Label(self.frame, image=self.line_image, bg="white")
         line.pack(anchor=NW, padx=60, pady=20)
         
+        # 사진 출력
         image_entry = Label(self.frame, width=15, height=9)
         image_entry.pack(anchor=NW, padx=60, pady=20)
         
+        # 성별 라디오 버튼
         sex_label = Label(self.frame, text="성별", bg="white", font=self.hanna14font)
         sex_label.place(x=220, y=170)
         sex_var = IntVar()
@@ -102,21 +108,25 @@ class userGUI:
         sex_button1.place(x=290, y=160)
         sex_button2.place(x=350, y=160)
         
+        # 전화번호 출력
         phone_label = Label(self.frame, text="전화번호", bg="white", font=self.hanna14font)
         phone_label.place(x=220, y=225)
         phone_entry=Entry(self.frame, font=self.font14, width=10)
         phone_entry.place(x=300, y=225)
         
+        # 성년월일 출력
         birth_label = Label(self.frame, text="생년월일", bg="white", font=self.hanna14font)
         birth_label.place(x=220, y=285)
         birth_entry=Entry(self.frame, font=self.font14, width=10)
         birth_entry.place(x=300, y=285)
         
+        # 이메일 출력
         email_label = Label(self.frame, text="이메일", bg="white", font=self.hanna14font)
         email_label.place(x=220, y=350)
         email_entry=Entry(self.frame, font=self.font14, width=10)
         email_entry.place(x=300, y=350)
         
+        # 선 출력
         line2 = Label(self.frame, image=self.line_image, bg="white")
         line2.pack(anchor=NW, padx=60, pady=20)
         
@@ -157,28 +167,34 @@ class userGUI:
         
         
     # 회원 등록
-    def user_append(self,image9, image10, bk_bar):
+    def user_append(self):
+        # 이름 출력
         name_label = Label(self.frame, text="이름", bg="white", font=self.hanna14font)
         name_label.place(x=60, y=20)
         name_entry=Entry(self.frame, font=self.hanna18font, width=10)
         name_entry.pack(anchor=NW, padx=110, pady=20)
         
+        # 저자 출력
         writer_label = Label(self.frame, text="저자", bg="white", font=self.hanna14font)
         writer_label.place(x=60, y=80)
         writer_entry=Entry(self.frame, font=self.font14, width=10)
         writer_entry.pack(anchor=NW, padx=110, pady=10)
         
+        # 출판사 출력
         company_label = Label(self.frame, text="출판사", bg="white", font=self.hanna14font)
         company_label.place(x=240, y=80)
         company_entry=Entry(self.frame, font=self.font14, width=10)
         company_entry.place(x=300, y=80)
         
-        line = Label(self.frame, image=image9, bg="white")
+        # 선 출력
+        line = Label(self.frame, image=self.line_image, bg="white")
         line.pack(anchor=NW, padx=60, pady=20)
         
+        # 사진 출력
         image_entry = Label(self.frame, width=15, height=9)
         image_entry.pack(anchor=NW, padx=60, pady=20)
         
+        # 성별 라디오 버튼
         sex_label = Label(self.frame, text="성별", bg="white", font=self.hanna14font)
         sex_label.place(x=220, y=170)
         sex_var = IntVar()
@@ -187,30 +203,34 @@ class userGUI:
         sex_button1.place(x=290, y=160)
         sex_button2.place(x=350, y=160)
         
+        # 전화번호 출력
         phone_label = Label(self.frame, text="전화번호", bg="white", font=self.hanna14font)
         phone_label.place(x=220, y=225)
         phone_entry=Entry(self.frame, font=self.font14, width=10)
         phone_entry.place(x=300, y=225)
         
+        # 생년월일 출력
         birth_label = Label(self.frame, text="생년월일", bg="white", font=self.hanna14font)
         birth_label.place(x=220, y=285)
         birth_entry=Entry(self.frame, font=self.font14, width=10)
         birth_entry.place(x=300, y=285)
         
+        # 이메일 출력
         email_label = Label(self.frame, text="이메일", bg="white", font=self.hanna14font)
         email_label.place(x=220, y=350)
         email_entry=Entry(self.frame, font=self.font14, width=10)
         email_entry.place(x=300, y=350)
         
-        line2 = Label(self.frame, image=image9, bg="white")
+        # 선 출력
+        line2 = Label(self.frame, image=self.line_image, bg="white")
         line2.pack(anchor=NW, padx=60, pady=20)
         
         # 회원 등록 버튼
-        append_button = Button(self.frame,image=image10, bg="white", bd=0)
+        append_button = Button(self.frame,image=self.appendButton_image, bg="white", bd=0)
         append_button.pack(anchor=CENTER, pady=40)
         
         # 도서 하단 블랙 바
-        under_bg = Label(self.frame,image=bk_bar, bg="white")
+        under_bg = Label(self.frame,image=self.under_image, bg="white")
         under_bg.pack(side=BOTTOM)
     
     
