@@ -148,7 +148,7 @@ class userGUI:
         del_button.place(x=210, y=602)
         
         # 회원 대여 버튼
-        rent_button = Button(self.frame,image=self.rentButton_image, bg="white", bd=0)
+        rent_button = Button(self.frame,image=self.rentButton_image, bg="white", bd=0, command=userGUI().user_rent)
         rent_button.place(x=300, y=602)
         
         # 도서 하단 블랙 바
@@ -284,7 +284,14 @@ class userGUI:
         under_bg.place(x=-2, y=660)
         top.mainloop()
         
+    
+    # 회원 삭제 함수
     def user_delete(self):
+        pass
+    
+    
+    # 회원 대여 함수
+    def user_rent(self):
         pass
         
         
